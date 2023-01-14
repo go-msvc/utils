@@ -20,6 +20,7 @@ type Constructor interface {
 type Store interface {
 	ms.UsedService
 	Get(key string) (interface{}, error)
+	GetTmpl(key string, tmpl interface{}) (interface{}, error)
 	Set(key string, value interface{}) error
 }
 
@@ -53,8 +54,8 @@ func RegisterImplementation(name string, tmplConfig Constructor) {
 
 type Config map[string]interface{}
 
-//include this in your service config to create the kv for you
-//during service configuration
+// include this in your service config to create the kv for you
+// during service configuration
 func (c *Config) Validate() error {
 	if len(*c) != 1 {
 		return errors.Errorf("%d items, expecting one", len(*c))

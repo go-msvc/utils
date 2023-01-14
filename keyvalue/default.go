@@ -1,14 +1,14 @@
 package keyvalue
 
 func init() {
-	RegisterImplementation("default", inMemConstructor{})
+	RegisterImplementation("default", MemConfig{})
 }
 
-type inMemConstructor struct{}
+type MemConfig struct{}
 
-func (c inMemConstructor) Validate() error { return nil }
+func (c MemConfig) Validate() error { return nil }
 
-func (c inMemConstructor) Create() (Store, error) {
+func (c MemConfig) Create() (Store, error) {
 	return inMemStore{
 		values: map[string]interface{}{},
 	}, nil
@@ -30,7 +30,7 @@ func (s inMemStore) Set(key string, value interface{}) error {
 	return nil
 }
 
-//for ms.UsedService interface
+// for ms.UsedService interface
 func (s inMemStore) Status() interface{} {
 	return nil
 }
