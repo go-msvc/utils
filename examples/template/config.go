@@ -7,5 +7,5 @@ func (c Config) Validate() error {
 }
 
 func (c Config) Loaded() {
-	//todo
+	//todo for template...
 }

@@ -14,15 +14,15 @@ type Operation interface {
 	Handle(ctx context.Context, req interface{}) (res interface{}, err error)
 }
 
-//oper implements Operation interface
+// oper implements Operation interface
 type oper struct {
 	name      string
 	funcValue reflect.Value
 	reqType   reflect.Type
 }
 
-//WithOper() enforces names to be snake_case
-//while internally we call withOper() to allow leading underscore, not allowed for service's own operations
+// WithOper() enforces names to be snake_case
+// while internally we call withOper() to allow leading underscore, not allowed for service's own operations
 func WithOper(name string, handlerFunc interface{}) Option {
 	if !stringutils.IsSnakeCase(name) {
 		panic(fmt.Sprintf("cannot add operation name \"%s\" because it is not written as snake_case", name))

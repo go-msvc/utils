@@ -13,9 +13,13 @@ import (
 )
 
 type Constructor interface {
-	ms.Config
+	//Validator...
 	Create() (Store, error)
 }
+
+// todo: ... remove construction here.... of from config... must only have one
+// consider using key-value for config.Source as its more generic...
+// then move source GetInto to KeyValue?
 
 type Store interface {
 	ms.UsedService
