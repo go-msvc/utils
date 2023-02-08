@@ -2,6 +2,8 @@ github.com/go-msvc/config v0.0.1 h1:Qd74eD4QRCLPskr59li4lTgshCg8v6L0l2eFetX9a0w=
 github.com/go-msvc/config v0.0.1/go.mod h1:HO78cFNd4kOIlfph2v30kuL0iR0CpA3DXD48ffx9eSg=
 github.com/go-msvc/data v1.0.1 h1:dLOdPGXva/4857v9UV2D2PzEXctBztYgAjgts9gMNPg=
 github.com/go-msvc/data v1.0.1/go.mod h1:+fx5vNSdAEE7sZNjYrKP+BYmHcKs0ieX5F+MO/pu53c=
+github.com/go-msvc/dot v0.0.0 h1:nlFTBRY2cSw9Q5poduYAbSzskmSoIzWxon3sUUrKmGQ=
+github.com/go-msvc/dot v0.0.0/go.mod h1:42w/mhW0H7mAKZRH1WrtxGiYvCYQNdEFn8nzd7c/qyY=
 github.com/go-msvc/errors v1.1.0 h1:jbOdXDJySgXvpq3GyNo8/YWZ7x4HYyz3OxLH7nw/7o8=
 github.com/go-msvc/errors v1.1.0/go.mod h1:5C49YNbi5juDL9ntxw/QbapNHLs4M9SpJ5ETp8AN7+M=
 github.com/go-msvc/errors v1.2.0 h1:fTZypG1qs7lDtYfGYKDey62lMCT5ClsyxeMysrxNo0g=
@@ -10,3 +12,7 @@ github.com/go-msvc/logger v0.0.0-20210121062433-1f3922644bec h1:Xrt+itPOlP+NsaQs
 github.com/go-msvc/logger v0.0.0-20210121062433-1f3922644bec/go.mod h1:2wVoA8rQtGPatj+5uHahKFExXJqcRHpq4an2UHuYidc=
 github.com/go-msvc/logger v1.0.0 h1:OELJmIpXSRLnbmy4UMc1IWQiQBH5ODZDjeofc540Lzg=
 github.com/go-msvc/logger v1.0.0/go.mod h1:qHIjKcyl03uKxD2SrJa6UqSfp0RuOiuOSyb8i1NLhKw=
+github.com/go-msvc/str v0.0.0 h1:EbBk/6rMju+O8wUai/BHgp50+La52vUhx1whDaevrZ0=
+github.com/go-msvc/str v0.0.0/go.mod h1:CTJtvm1tYy/SggFD6qY9OCpoW3aBk4LYqz8Qh8IX6pU=
+github.com/stewelarend/logger v0.0.4 h1:U+FhNJgbEA5YKUlSLhvk7UaPYjnuBQPkMbQvEKV9Fb8=
+github.com/stewelarend/logger v0.0.4/go.mod h1:9N9cjtsb9vHO+Noy17MDNMmH4fL1jBpGJ2HIxQyljvo=
