@@ -11,7 +11,7 @@ import (
 type Operation interface {
 	Name() string
 	ReqType() reflect.Type
-	Handle(ctx context.Context, req interface{}) (res interface{}, err error)
+	Handle(ctx context.Context, reqData interface{}) (resData interface{}, err error)
 }
 
 // oper implements Operation interface
