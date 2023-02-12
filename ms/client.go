@@ -30,6 +30,7 @@ type Client interface {
 		serviceAddress Address,
 		ttl time.Duration,
 		req interface{},
+		resTmpl interface{},
 	) (
 		res interface{},
 		err error,

@@ -1,5 +1,7 @@
 package ms
 
+import "github.com/go-msvc/errors"
+
 // Request is processed by an operation
 type Request struct {
 	//auth-ed user/role?
@@ -20,3 +22,17 @@ type Error struct {
 }
 
 type Errors []Error
+
+//convert received errors to a golang error
+func NewError(ee ...Error) error {
+	var err error
+	for i := len(ee) - 1; i >= 0; i-- {
+		e := ee[i]
+		if err == nil {
+			err = errors.Errorf("%s: %s", e.Code, e.Details) //todo: do not include message.go as source
+		} else {
+			err = errors.Wrapf(err, "%s: %s", e.Code, e.Details) //todo: do not include message.go as source
+		}
+	}
+	return err
+}

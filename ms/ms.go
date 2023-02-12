@@ -28,7 +28,7 @@ type MicroService interface {
 
 type Option func(s *microService) error
 
-func New(name string, options ...Option) microService {
+func New(options ...Option) microService {
 	ms := microService{
 		opers:     map[string]oper{},
 		operNames: []string{},
