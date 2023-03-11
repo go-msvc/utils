@@ -1,14 +1,17 @@
 package keyvalue
 
 import (
+	"context"
 	"encoding/json"
 	"reflect"
+	"time"
 
+	"github.com/go-msvc/config"
 	"github.com/go-msvc/errors"
 )
 
 func init() {
-	RegisterImplementation("default", MemConfig{})
+	config.RegisterConstructor("mem", MemConfig{})
 }
 
 type MemConfig struct{}
@@ -70,6 +73,27 @@ func (s inMemStore) GetTmpl(key string, tmpl interface{}) (interface{}, error) {
 func (s inMemStore) Set(key string, value interface{}) error {
 	s.values[key] = value
 	return nil
+}
+
+func (s inMemStore) Del(key string) error {
+	delete(s.values, key)
+	return nil
+}
+
+func (s inMemStore) CtxGet(ctx context.Context, key string) (interface{}, error) {
+	return s.Get(key)
+}
+
+func (s inMemStore) CtxGetTmpl(ctx context.Context, key string, tmpl interface{}) (interface{}, error) {
+	return s.GetTmpl(key, tmpl)
+}
+
+func (s inMemStore) CtxSet(ctx context.Context, key string, value interface{}, ttl time.Duration) error {
+	return s.Set(key, value)
+}
+
+func (s inMemStore) CtxDel(ctx context.Context, key string) error {
+	return s.Del(key)
 }
 
 // for ms.UsedService interface

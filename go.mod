@@ -15,4 +15,4 @@ require (
 	github.com/stewelarend/logger v0.0.4 // indirect
 )
 
-replace github.com/go-msvc/config => ../config
+//replace github.com/go-msvc/config => ../config

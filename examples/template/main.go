@@ -10,7 +10,7 @@ type template struct{}
 
 func main() {
 	config.AddSource("config.json", config.File("./config.json"))
-	ms := ms.New("template",
+	ms := ms.New(
 		ms.WithOper("greet", operGreet),
 		ms.WithOper("wave", operWave),
 		ms.WithOper("add_group", addGroup),

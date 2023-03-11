@@ -1,15 +1,18 @@
 package keyvalue
 
 import (
+	"context"
 	"encoding/json"
 	"os"
 	"reflect"
+	"time"
 
+	"github.com/go-msvc/config"
 	"github.com/go-msvc/errors"
 )
 
 func init() {
-	RegisterImplementation("files", FilesConfig{})
+	config.RegisterConstructor("files", FilesConfig{})
 }
 
 type FilesConfig struct {
@@ -87,6 +90,31 @@ func (s filesStore) Set(key string, value interface{}) error {
 		return errors.Errorf("failed encode JSON value")
 	}
 	return nil
+}
+
+func (s filesStore) Del(key string) error {
+	fn := s.filename(key)
+	err := os.Remove(fn)
+	if err != nil && err != os.ErrNotExist {
+		return errors.Errorf("cannot delete file %s", fn)
+	}
+	return nil
+} //fileStore.Del()
+
+func (s filesStore) CtxGet(ctx context.Context, key string) (interface{}, error) {
+	return s.Get(key)
+}
+
+func (s filesStore) CtxGetTmpl(ctx context.Context, key string, tmpl interface{}) (interface{}, error) {
+	return s.GetTmpl(key, tmpl)
+}
+
+func (s filesStore) CtxSet(ctx context.Context, key string, value interface{}, ttl time.Duration) error {
+	return s.Set(key, value)
+}
+
+func (s filesStore) CtxDel(ctx context.Context, key string) error {
+	return s.Del(key)
 }
 
 // for ms.UsedService interface
